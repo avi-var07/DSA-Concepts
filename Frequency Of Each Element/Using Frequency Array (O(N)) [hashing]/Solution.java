@@ -14,9 +14,10 @@ class Solution {
         System.out.print(arr[i]+" ");
         System.out.println("\nFrequency of each element in the array: ");
         int maxval=0;
-        for(int i=0;i<n;i++)
-        if(arr[i]>maxval)
-        maxval=arr[i];
+        for(int i=0;i<n;i++){
+            if(arr[i]>maxval)
+            maxval=arr[i];
+        }
 
         int[] freq = new int[maxval+1];
 
