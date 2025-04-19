@@ -9,7 +9,7 @@ class Solution {
 
         int rows = matrix.length;   //This gives total rows
         for(int i=0;i<rows;i++){
-            System.out.print("Row " + i + " has " + matrix[i].length + " columns");
+            System.out.print("Row " + i + " has " + matrix[i].length + " columns"); //Column in each row
             System.out.println();
             System.out.println("Elements in the row: ");
             for(int j=0;j<matrix[i].length;j++)
@@ -18,6 +18,33 @@ class Solution {
 
             System.out.println();
         }
+
+        //Using user input & printing matrix:
+        System.out.println("Enter number of rows: ");
+        int r = sc.nextInt();
+        System.out.println("Enter number of columns: ");
+        int c = sc.nextInt();
+
+        int arr1[][]=new int[r][c];
+        System.out.println("Enter elements: ");
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++)
+            arr1[i][j]=sc.nextInt();
+        }
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++)
+            System.out.print(arr1[i][j]+" ");
+
+            System.out.println();
+        }
+
+
+        //For square matrix : r=n,c=n, n= size of square matrix
+
+        //If there is a matrix given, to find rows and columns:
+
+        //rows = matrix.length, columns k liye loop lagao, for(int i=0;i<rows;i++){for(int j=0;j<matrix[i].length;j++)}
+
 
         sc.close();
     }
