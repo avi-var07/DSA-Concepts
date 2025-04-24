@@ -5,7 +5,7 @@ class Main {
         return (n&(1<<i))!=0;
     }
     public static boolean checkByRightShift(int n, int i){
-        return ((n>>i)&1)!=0;
+        return ((n>>i)&1)==1;
     }
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
