@@ -1,56 +1,68 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class MergeSort {
-    static void merge(int[] arr, int left, int mid, int right) {
-        int n1 = mid - left + 1;
-        int n2 = right - mid;
+    static void merge(int[] arr, int low, int mid, int high) {
+        int left = low;
+        int right = mid+1;
 
-        int[] leftArr = new int[n1];
-        int[] rightArr = new int[n2];
-
-        for (int i = 0; i < n1; i++) 
-            leftArr[i] = arr[left + i];
-
-        for (int j = 0; j < n2; j++) 
-            rightArr[j] = arr[mid + 1 + j];
-
-        int i = 0, j = 0, k = left;
-
-        while (i < n1 && j < n2) {
-            if (leftArr[i] <= rightArr[j]) 
-                arr[k++] = leftArr[i++];
-            else 
-                arr[k++] = rightArr[j++];
+      ArrayList<Integer> temp = new ArrayList<>();
+        
+        while(left<=mid&&right<=high){
+            if(arr[left]<=arr[right]){
+                temp.add(arr[left]);
+                left++;
+            }
+            else{
+                temp.add(arr[right]);
+                right++;
+            }
         }
-
-        while (i < n1) 
-            arr[k++] = leftArr[i++];
-
-        while (j < n2) 
-            arr[k++] = rightArr[j++];
+        
+        while(left<=mid){
+            temp.add(arr[left]);
+            left++;
+        }
+        while(right<=high){
+            temp.add(arr[right]);
+            right++;
+        }
+        
+        for(int i=low;i<=high;i++)
+        arr[i]= temp.get(i-low);
     }
 
-    static void mergeSort(int[] arr, int left, int right) {
-        if (left < right) {
-            int mid = left + (right - left) / 2;
-            mergeSort(arr, left, mid);
-            mergeSort(arr, mid + 1, right);
-            merge(arr, left, mid, right);
+    static void mergeSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int mid = low + (high - low) / 2;
+            mergeSort(arr, low, mid);
+            mergeSort(arr, mid + 1, high);
+            merge(arr, low, mid, high);
         }
+        else return;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of elements: ");
         int n = sc.nextInt();
         int[] arr = new int[n];
 
+        System.out.println("Enter elements of the array: ");
         for (int i = 0; i < n; i++) 
-            arr[i] = sc.nextInt();
+        arr[i] = sc.nextInt();
+        
+        System.out.println("Before applying Merge Sort: ");
+        for (int i = 0; i < n; i++) 
+        System.out.print(arr[i] + " ");
 
+
+        System.out.println();
         mergeSort(arr, 0, n - 1);
 
+        System.out.println("After applying Merge Sort: ");
         for (int i = 0; i < n; i++) 
-            System.out.print(arr[i] + " ");
+        System.out.print(arr[i] + " ");
 
         sc.close();
     }
