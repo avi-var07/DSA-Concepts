@@ -1,0 +1,21 @@
+Cycle Sort (Missing Number) 
+Binary Search (First and Last Index)and basically all binary search questions, hint rhega sorted 
+Rotated Array
+Kadane Algo
+Two pointer approach, for sliding window as well
+stock buy and sell
+jump game
+next permutation
+majority element
+mountain array (bitonic array), ie peak element
+set matrix zeroes
+rotate matrix
+spiral matrix
+pascal triangle
+
+Sliding Window using ArrayDeque (First Negative in Window, Sliding Window Maximum)
+Insertion sort
+bubble sort optimized
+subarrays questions
+
+
