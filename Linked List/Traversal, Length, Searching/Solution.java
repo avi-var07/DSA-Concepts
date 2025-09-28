@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 class Node{
     int data;
     Node next;
@@ -34,10 +34,20 @@ class Solution{
             System.out.print(temp.data+" ");
             temp = temp.next;
         }
-
+        
         
     }
+    static boolean search(Node head, int val){
+        Node temp = head;
+        while(temp!=null){
+            if(temp.data==val)return true;
+            temp = temp.next;
+        }
+        return false;
+    }
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
         int arr[] = {2,1,3,4,8};
 
         Node head = convertToLinkedList(arr);
@@ -45,5 +55,13 @@ class Solution{
         System.out.println("Length of the Linked List is: "+lengthOfLinkedList(head));
 
         display(head);
+
+        System.out.println();
+        System.out.println("Enter Value to search: ");
+        int val = sc.nextInt();
+
+        System.out.println(search(head, val));
+
+        sc.close();
     }
 }
