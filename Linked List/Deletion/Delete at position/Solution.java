@@ -67,7 +67,7 @@ class Solution {
         while(temp!=null){
             len++;
             if(len==k){
-                prev.next=prev.next.next;
+                prev.next=temp.next;
                 break;
             }
             else {
