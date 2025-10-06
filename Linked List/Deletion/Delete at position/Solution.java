@@ -61,19 +61,17 @@ class Solution {
             return head;
         }
         int len = 0;
-        Node prev = null;
+      
         Node temp=head;
 
         while(temp!=null){
             len++;
-            if(len==k){
-                prev.next=temp.next;
+            if(len==k-1){
+                temp.next=temp.next.next;
                 break;
             }
-            else {
-                prev=temp;
-                temp=temp.next;
-            }
+            else temp=temp.next;
+            
         }
         return head;
     }
