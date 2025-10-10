@@ -66,21 +66,15 @@ class Solution{
     }
     public static int lengthOfLoop(Node head) {
         // code here
-        Node slow = head;
-        Node fast = head;
-        while(fast!=null&&fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-            
-            if(slow==fast){
-                int count = 1;
-                slow=slow.next;
-                while(slow!=fast){
-                    count++;
-                    slow=slow.next;
-                }
-                return count;
-            }
+        Map<Node, Integer> map = new HashMap<>();
+        Node temp =head;
+        int timer= 0;
+        while(temp!=null){
+            if(map.containsKey(temp))return timer - map.get(temp);
+
+            map.put(temp, timer);
+            timer++;
+            temp=temp.next;
         }
         return 0;
     }
