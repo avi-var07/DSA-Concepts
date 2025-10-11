@@ -104,11 +104,8 @@ class Solution{
             t2.prev=temp;
         }
 
-        DLLNode front = dummyNode.next;
-        front.prev=null;
-        dummyNode.next=null;
 
-        return front;
+        return dummyNode.next;
     }
 
 }
