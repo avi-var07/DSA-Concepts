@@ -9,7 +9,7 @@ class Solution{
 
         String res = infixToPostfix(s, "");
 
-        System.out.println(res);
+        System.out.println("Postfix is: "+res);
         sc.close();
     }
     static String infixToPostfix(String s, String ans){
