@@ -5,10 +5,10 @@ class Solution{
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Prefix: ");
         String postfix = sc.nextLine();
-        System.out.println("Infix is: "+postfixToInfix(postfix));
+        System.out.println("Infix is: "+prefixToInfix(postfix));
         sc.close();
     }
-    static String postfixToInfix(String str){
+    static String prefixToInfix(String str){
         Stack<String>st  = new Stack<>();
         int n = str.length();
         for(int i = n-1;i>=0;i--){
