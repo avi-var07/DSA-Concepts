@@ -4,11 +4,11 @@ class Solution{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Prefix: ");
-        String postfix = sc.nextLine();
-        System.out.println("Infix is: "+postfixToInfix(postfix));
+        String prefix = sc.nextLine();
+        System.out.println("Postfix is: "+prefixToPostfix(prefix));
         sc.close();
     }
-    static String postfixToInfix(String str){
+    static String prefixToPostfix(String str){
         Stack<String>st  = new Stack<>();
         int n = str.length();
         for(int i = n-1;i>=0;i--){
