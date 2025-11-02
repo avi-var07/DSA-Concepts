@@ -8,12 +8,12 @@ class Solution{
         String s = sc.nextLine();
         s= reverse(s.toCharArray());
 
-        String res = infixToPostfix(s, "");
+        String res = infixToPrefix(s, "");
         res = reverse(res.toCharArray());
-        System.out.println(res);
+        System.out.println("Prefix is: "+res);
         sc.close();
     }
-    static String infixToPostfix(String s, String ans){
+    static String infixToPrefix(String s, String ans){
         Stack<Character>st = new Stack<>();
         
         for(char ch: s.toCharArray()){
