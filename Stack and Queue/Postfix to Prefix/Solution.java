@@ -3,12 +3,12 @@ import java.util.*;
 class Solution{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Prefix: ");
+        System.out.println("Enter Postfix: ");
         String postfix = sc.nextLine();
-        System.out.println("Infix is: "+postfixToInfix(postfix));
+        System.out.println("Prefix is: "+postfixToPrefix(postfix));
         sc.close();
     }
-    static String postfixToInfix(String str){
+    static String postfixToPrefix(String str){
         Stack<String>st  = new Stack<>();
     
         for(char ch: str.toCharArray()){
