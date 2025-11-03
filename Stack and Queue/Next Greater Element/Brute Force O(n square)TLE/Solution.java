@@ -33,9 +33,12 @@ class Solution{
         System.out.println("Enter "+n+" elements: ");
         for(int i=0;i<n;i++) arr[i] = sc.nextInt();
 
+        ArrayList<Integer>ans = nextLargerElement(arr);
+
+        for(var ele: ans)System.out.print(ele+" ");
         sc.close();
     }
-    public ArrayList<Integer> nextLargerElement(int[] arr) {
+    public static ArrayList<Integer> nextLargerElement(int[] arr) {
         // code here
         ArrayList<Integer>ans = new ArrayList<>();
         int n = arr.length;
