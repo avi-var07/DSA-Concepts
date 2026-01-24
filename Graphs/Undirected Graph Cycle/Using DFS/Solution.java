@@ -42,13 +42,6 @@ class Solution{
 
     sc.close();
     }
-    static class Pair{
-        int node, parent;
-        Pair(int node, int parent){
-            this.node = node;
-            this.parent = parent;
-        }
-    }
     public static boolean isCycle(int V, int[][] edges) {
         // Code here
         boolean visited[] = new boolean[V];
