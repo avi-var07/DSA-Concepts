@@ -1,12 +1,12 @@
 import java.util.*;
 
-class TreeNode{
-    TreeNode left;
-    TreeNode right;
+class Node{
+    Node left;
+    Node right;
 
     int val;
 
-    TreeNode(int val){
+    Node(int val){
         this.val=val;
     }
 }
@@ -18,7 +18,7 @@ class Solution{
         int n = sc.nextInt();
 
         Solution sol = new Solution();
-        TreeNode root=null;
+        Node root=null;
 
         System.out.println("Enter "+n+" Elements: ");
         for(int i=0;i<n;i++){
@@ -26,12 +26,12 @@ class Solution{
             root=sol.insert(root, val);
         }
 
-        List<Integer>ans = sol.rightSideView(root);
+        ArrayList<Integer>ans = sol.bottomView(root);
         System.out.println(ans);
         sc.close();
     }
-    public TreeNode insert(TreeNode root, int val){
-        if(root==null)return new TreeNode(val);
+    public Node insert(Node root, int val){
+        if(root==null)return new Node(val);
 
         if(root.val<val)root.right =insert(root.right, val);
         else root.left=insert(root.left, val);
@@ -39,7 +39,7 @@ class Solution{
         return root;
 
     }
-    public void inorder(TreeNode root){
+    public void inorder(Node root){
         if(root==null)return;
 
         inorder(root.left);
@@ -48,29 +48,35 @@ class Solution{
 
     }
     class Pair{
-        TreeNode node;
-        int level;
-        Pair(TreeNode node, int level){
-            this.node = node;
-            this.level=level;
+        Node node;
+        int hd;
+        
+        Pair(Node node, int hd){
+            
+            this.hd=hd;
+            this.node =node;
         }
     }
-    public List<Integer> rightSideView(TreeNode root) {
-        List<Integer>ans =new ArrayList<>();
-        if(root==null)return ans;
-        Queue<Pair>queue = new LinkedList<>();
+    public ArrayList<Integer> bottomView(Node root) {
+        // code here
+        ArrayList<Integer>ans = new ArrayList<>();
         Map<Integer, Integer>map = new TreeMap<>();
+        
+        Queue<Pair>queue = new LinkedList<>();
+        
         queue.add(new Pair(root, 0));
         while(!queue.isEmpty()){
             Pair p = queue.poll();
-            TreeNode node = p.node;
-            int level = p.level;
-
-            map.put(level, node.val);
-            if(node.left!=null)queue.add(new Pair(node.left, level+1));
-            if(node.right!=null)queue.add(new Pair(node.right, level+1));
+            Node node = p.node;
+            int hd = p.hd;
+            
+            map.put(hd, node.val);
+            
+            if(node.left!=null)queue.add(new Pair(node.left, hd-1));
+            if(node.right!=null)queue.add(new Pair(node.right, hd+1));
         }
         for(int ele: map.values())ans.add(ele);
+        
         return ans;
     }
 }
